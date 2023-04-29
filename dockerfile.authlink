@@ -1,8 +1,10 @@
 FROM node:16-alpine
 
+RUN apk add --no-cache redis
+
 WORKDIR /app
 
 COPY ./authlink/package.json .
 COPY ./authlink/package-lock.json .
 
-CMD npm i; npm run dev
+CMD npm i;redis-server & npm run dev

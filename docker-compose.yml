@@ -11,12 +11,10 @@ services:
       - 3020:3020
     depends_on:
       - postgres
-      - redis
     environment:
       - SESSION_STORAGE_PATH=/authlink-data
       - COOKIE_SECRET=ververysecretysecret*1234%^&*
       - PSQL_URI=postgres://postgres:postgres@postgres:5432/postgres
-      - REDIS_URI=redis://redis:6379
     volumes:
       - ./authlink-data:/authlink-data
       - ./authlink:/app
@@ -33,9 +31,3 @@ services:
       - ./scripts:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
-  redis:
-    container_name: redis
-    image: redis:alpine
-    restart: always
-    ports:
-      - 6379:6379

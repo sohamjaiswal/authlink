@@ -25,7 +25,6 @@ export async function loader({ request }) {
       .catch((e) => console.log('Error while preparing statement: ', e, ' - ', e.stack || 'no stack'))
     authResult = await authStatement.execute({ params: [guildedData.user.id] })
       .catch((e) => console.log('Error while executing statement: ', e, ' - ', e.stack || 'no stack'))
-    console.log(authResult)
     let clientIds = []
     for (const row of authResult.rows) {
       if (!clientIds.includes(row[1])) {

@@ -5,5 +5,4 @@ const client = createClient({
     port: 6379,
 })
 client.connect()
-
 export default client

@@ -15,12 +15,18 @@ export async function loader({ request }) {
   const guildedData = await boilerplateLoader({request})
 
   const connection = await pool.acquire()
+
   let authResult = null
   let appResult = null
+
   try {
+    console.log('trying')
     const authStatement = await connection.prepare('SELECT * FROM authorizations WHERE user_id = $1')
-    authResult = await authStatement.execute({params: [guildedData.user.id]})
-    clientIds = []
+      .catch((e) => console.log('Error while preparing statement: ', e, ' - ', e.stack || 'no stack'))
+    authResult = await authStatement.execute({ params: [guildedData.user.id] })
+      .catch((e) => console.log('Error while executing statement: ', e, ' - ', e.stack || 'no stack'))
+    console.log(authResult)
+    let clientIds = []
     for (const row of authResult.rows) {
       if (!clientIds.includes(row[1])) {
         clientIds.push(row[1])

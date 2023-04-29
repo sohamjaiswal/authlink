@@ -1,1 +1,0 @@
-create table vanity_codes(code text not null, redirect_uri text, prompt text default 'consent'::text, client_id text not null, disabled_at timestamp without time zone, scopes json, constraint vanity_codes_pkey primary key (client_id), constraint vanity_codes_unique_code unique(code));

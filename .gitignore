@@ -1,10 +1,4 @@
-node_modules
-/.cache
-/build
-/public/build
-.env
-/app/sessions
-package-lock.json
-
+authlink-data/*
+!authlink-data/.gitkeep
+postgres-data/data/*
 dump.rdb
-data

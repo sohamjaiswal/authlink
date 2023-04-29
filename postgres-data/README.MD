@@ -1,0 +1,1 @@
+Create a folder called "data" (without "s) for postgres db to work with docker compose

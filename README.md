@@ -14,8 +14,18 @@ For more radical changes, please first [contact me](https://www.guilded.gg/authl
 
 ### Running
 
-Setup postgres
+```
+Setup postgres && redis
 
+Configure postgres for authlink by running the sql queries in scripts
+
+Create env file like so, (with your config)
+
+SESSION_STORAGE_PATH=./data
+COOKIE_SECRET=ververysecretysecret*1234%^&*
+PSQL_URI=postgres://postgres@localhost:5432/postgres
+REDIS_URI=redis://localhost:6379
+```
 ```sh
 # Install dependencies:
 npm install

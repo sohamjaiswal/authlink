@@ -14,6 +14,8 @@ For more radical changes, please first [contact me](https://www.guilded.gg/authl
 
 ### Running
 
+Setup postgres
+
 ```sh
 # Install dependencies:
 npm install

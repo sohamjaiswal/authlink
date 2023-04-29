@@ -1,0 +1,1 @@
+create table applications (bot_id text not null, client_secret text, redirect_uris json, owner_id text, name text, icon_hash text, user_id text, team_id text, created_at timestamp without time zone, bot_created_at timestamp without time zone, linked_team_id text, show_team boolean, vanity_slug text, CONSTRAINT applications_pkey primary key (bot_id));
